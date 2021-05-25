@@ -1,0 +1,52 @@
+.row{
+    max-width: 114rem;
+    margin: 0 auto;
+
+    //not means every other element i.e every child except the mentioned
+    //i.e properties will be implemented to all the childs except the mentioned
+
+    &:not(:last-child){
+        margin-bottom: $gutter-vertical;
+    }
+
+    @include clearfix;
+
+    //^ starts with mentioned value
+    //$ ends with mentioned value
+    //* contains with mentioned value
+
+    [class^="col-"]{
+        float: left;
+
+        &:not(:last-child){
+            margin-right: $gutter-horizontal;
+        }
+    }
+
+    .col-1-of-2 {
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+    }
+
+    .col-1-of-3 {
+        width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+    }
+
+    .col-1-of-4{
+        width: calc((100% - 3* #{$gutter-horizontal}) / 4);
+    }
+
+    .col-2-of-3{
+        width: calc(2* ((100% - 2* #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+        background-color: rgb(94, 228, 67);
+    }
+
+    .col-2-of-4{
+        width: calc(2* ((100% - 3* #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+        background-color: rgb(137, 67, 228);
+    }
+
+    .col-3-of-4{
+        width: calc(3* ((100% - 3* #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
+        background-color: rgb(52, 37, 59);
+    }
+}
